@@ -1,20 +1,18 @@
 import fetchPonyFill from 'fetch-ponyfill'
+import * as types from '../constants/action_types'
 
-export const REQUEST_REPORTS = 'REQUEST_REPORTS'
-export const REQUEST_REPORTS_FAILURE = 'REPORTS_REQUEST_FAILURE'
-export const REQUEST_REPORTS_SUCCEEDED = 'REQUEST_REPORTS_SUCCEEDED'
 const { fetch } = fetchPonyFill()
 const rootUrl = 'http://knowsnowapi.herokuapp.com'
 
 function requestReports() {
     return {
-        type: REQUEST_REPORTS
+        type: types.REQUEST_REPORTS
     }
 }
 
 function requestReportsSucceeded(json) {
     return {
-        type: REQUEST_REPORTS_SUCCEEDED,
+        type: types.REQUEST_REPORTS_SUCCEEDED,
         items: json,
         receivedAt: Date.now()
     }

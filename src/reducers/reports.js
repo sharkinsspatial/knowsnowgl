@@ -1,15 +1,15 @@
 import Immutable from 'immutable'
-import { REQUEST_REPORTS, REQUEST_REPORTS_SUCCEEDED } from '../actions/reports'
+import * as types from '../constants/action_types'
 
 const initialState = Immutable.fromJS({ isFetching: false, items: [] })
 function reports(state = initialState, action) {
     switch (action.type) {
-    case REQUEST_REPORTS:
+    case types.REQUEST_REPORTS:
         return state.merge({
             isFetching: true
         })
 
-    case REQUEST_REPORTS_SUCCEEDED:
+    case types.REQUEST_REPORTS_SUCCEEDED:
         return state.merge({
             isFetching: false,
             items: action.items,
