@@ -1,20 +1,19 @@
-import fetchPonyFill from 'fetch-ponyfill'
+/* global fetch*/
+import 'isomorphic-fetch'
 import * as types from '../constants/action_types'
 
-const { fetch } = fetchPonyFill()
 const rootUrl = 'http://knowsnowapi.herokuapp.com'
 
-function requestReports() {
+export function requestReports() {
     return {
         type: types.REQUEST_REPORTS
     }
 }
 
-function requestReportsSucceeded(json) {
+export function requestReportsSucceeded(json) {
     return {
         type: types.REQUEST_REPORTS_SUCCEEDED,
-        items: json,
-        receivedAt: Date.now()
+        items: json
     }
 }
 
@@ -23,7 +22,7 @@ export function fetchReports() {
         const url = `${rootUrl}/api/Reports?filter[order]=startTime` +
                     `%20DESC&filter[include]=imageMetadatas&` +
                     `filter[include][owner][identities]&filter[limit]=15`
-        dispatch(requestReports)
+        dispatch(requestReports())
         return fetch(url)
             .then(response => response.json())
             .then(json => dispatch(requestReportsSucceeded(json)))
