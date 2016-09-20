@@ -5,14 +5,14 @@ import fetchMock from 'fetch-mock'
 import * as actions from '../src/actions/reportActions'
 import * as types from '../src/constants/action_types'
 
-test('reports', (tt) => {
+test('reportActions', (tt) => {
     tt.test('requestReports', (t) => {
         t.plan(1)
         const expected = {
             type: types.REQUEST_REPORTS
         }
         t.deepEqual(actions.requestReports(), expected,
-                    'should create action to request reports')
+                    'creates REQUEST_REPORTS action')
     })
 
     tt.test('fetchReports', (t) => {
