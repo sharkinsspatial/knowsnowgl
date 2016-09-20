@@ -2,7 +2,7 @@ import test from 'tape'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import fetchMock from 'fetch-mock'
-import * as actions from '../src/actions/reports'
+import * as actions from '../src/actions/reportActions'
 import * as types from '../src/constants/action_types'
 
 test('reports', (tt) => {

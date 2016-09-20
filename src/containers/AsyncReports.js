@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchReports } from '../actions/reports'
+import { fetchReports } from '../actions/reportActions'
 import ReportList from '../components/ReportList'
 
 const AsyncReports = React.createClass({

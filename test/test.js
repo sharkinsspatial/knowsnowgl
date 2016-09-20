@@ -1,6 +1,6 @@
 /* global window setTimeout*/
 import test from 'tape'
-import reportTest from './reportsTest'
+import reportActionsTest from './reportActionsTest'
 
 test('Shutdown', (t) => {
     t.pass('Shutting down')
