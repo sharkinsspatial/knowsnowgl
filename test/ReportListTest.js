@@ -8,7 +8,9 @@ import Report from '../src/components/Report'
 const setup = () => {
     const items = [{ id: '0', distance: 0 }, { id: '1', distance: 1 }]
     const props = {
-        items: Immutable.fromJS(items)
+        items: Immutable.fromJS(items),
+        selected: '0',
+        onReportSelect: () => {}
     }
     const wrapper = shallow(<ReportList {...props} />)
     return { props, wrapper }

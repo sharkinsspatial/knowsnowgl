@@ -12,7 +12,10 @@ import * as types from '../src/constants/action_types'
 const setup = () => {
     // Lots of ceremony to fully render component.
     const mockStore = configureMockStore([thunk])
-    const reports = Immutable.fromJS({ isFetching: false, items: [] })
+    const reports = Immutable.fromJS({
+        isFetching: false,
+        items: [],
+        selected: 'x' })
     const store = mockStore({ reports })
     const wrapper = mount(
         <MuiThemeProvider>

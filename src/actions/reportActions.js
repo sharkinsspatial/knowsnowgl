@@ -28,3 +28,10 @@ export function fetchReports() {
             .then(json => dispatch(requestReportsSucceeded(json)))
     }
 }
+
+export function selectReport(id) {
+    return {
+        type: types.SELECT_REPORT,
+        id
+    }
+}

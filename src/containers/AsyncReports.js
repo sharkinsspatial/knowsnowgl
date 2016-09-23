@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { fetchReports } from '../actions/reportActions'
+import { fetchReports, selectReport } from '../actions/reportActions'
 import ReportList from '../components/ReportList'
 
 const AsyncReports = React.createClass({
     propTypes: {
-        dispatch: PropTypes.func.isRequired
+        onMount: PropTypes.func.isRequired
     },
     componentDidMount() {
-        const { dispatch } = this.props
-        dispatch(fetchReports())
+        this.props.onMount()
     },
     render() {
         return (
@@ -20,7 +19,17 @@ const AsyncReports = React.createClass({
 
 const mapStateToProps = state => ({
     isFetching: state.reports.get('isFetching'),
-    items: state.reports.get('items')
+    items: state.reports.get('items'),
+    selected: state.reports.get('selected'),
 })
 
-export default connect(mapStateToProps)(AsyncReports)
+const mapDispatchToProps = dispatch => ({
+    onReportSelect: (id) => {
+        dispatch(selectReport(id))
+    },
+    onMount: () => {
+        dispatch(fetchReports())
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AsyncReports)
