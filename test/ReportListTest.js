@@ -10,7 +10,8 @@ const setup = () => {
     const props = {
         items: Immutable.fromJS(items),
         selected: '0',
-        onReportSelect: () => {}
+        onReportSelect: () => {},
+        isFetching: false
     }
     const wrapper = shallow(<ReportList {...props} />)
     return { props, wrapper }
