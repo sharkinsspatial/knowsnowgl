@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import ImmutablePropTypes from 'react-immutable-proptypes'
-import { List, RefreshIndicator } from 'material-ui'
+import { List, Divider, RefreshIndicator } from 'material-ui'
 import Report from './Report'
 
 const ReportList = (props) => {
@@ -27,13 +27,19 @@ const ReportList = (props) => {
                 {items.map((item) => {
                     const id = item.get('id')
                     const distance = item.get('distance')
+                    const narrative = item.get('narrative')
+                    const glideWax = item.get('glideWax')
                     return (
-                        <Report
-                          id={id}
-                          key={id}
-                          distance={distance}
-                          {...other}
-                        />
+                        <div key={id}>
+                            <Report
+                              id={id}
+                              distance={distance}
+                              narrative={narrative}
+                              glideWax={glideWax}
+                              {...other}
+                            />
+                            <Divider />
+                        </div>
                     )
                 }
                 )}
